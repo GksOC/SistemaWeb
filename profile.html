@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile account</title>
+    <link rel="stylesheet" href="submenu.css">
+</head>
+
+<body>
+    <header>
+        <h1>MEU PERFIL</h1>
+    </header>
+
+    <nav>
+        <a onclick="toggleSubmenu()">MENU PRINCIPAL</a>
+        <div class="submenu" id="submenu">
+            <a href="editar.html">EDITAR</a>
+            <a href="#">EXCLUIR</a>
+            <a href="login.html">SAIR</a>
+        </div>
+    </nav>
+
+    <script>
+        function toggleSubmenu() {
+            const submenu = document.getElementById("submenu");
+            submenu.classList.toggle("active");
+        }  
+    </script>
+
+</body>
+
+</html>
