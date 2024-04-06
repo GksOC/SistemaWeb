@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+}
+
+.left, .right {
+    flex: 1;
+    margin: 10px;
+    min-width: 450px;
+    min-height: 700px;
+    border-radius: 15px;
+}
+
+.left {
+    background-color: #8881a7; 
+    padding: 20px;    
+}
+
+.right {
+    background-color: #a78888; 
+    padding: 20px;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: #00C8C888;
+}
+
+button:active{
+background-color: #0056b3;
+    transform: traslateY(2px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3)
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <title>DOM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="background-color: #CCCCCC;">
+     <div class="container">
+        <div class="left" id="divL1">
+
+            <h1>EXEMPLO FUNCIONAL</h1>
+
+            <p id="demo"> Mensagem Original</p>
+
+            <h3 id="newDemo"></h3>
+
+            <p id="copia"> INFORMAÇÃO </p>
+
+            <button id="bt1"type="submit"> BOTÃO! </button>
+
+            <button id="bt2" type="submit"> 
+            
+        </div>
+
+        <div class="right">
+            <h1>CÓDIGO DO EXERCÍCIO</h1>
+
+            <p> <i> &lt;p id="demo"&gt; Mensagem Original&lt;/p&gt; </i> <p>
+
+            <p> <i>let</i> temp = <b>document.getElementById</b>("demo").innerHTML; <br>
+                <b>document.getElementById</b>("demo").innerHTML = "Hello World! "+ temp;</p>
+
+            <p>--------------------------------------------------------------------------</p>
+
+            <p> <i> &lt;h3 id="newDemo"&gt;&lt;/h3&gt; </i></p>
+
+            <p> <b>document.getElementById</b>("newDemo").innerHTML = "Uma mensagem muito original";</p>
+            
+            <p>--------------------------------------------------------------------------</p>
+
+            <p> <i> &lt;div class="left" id="divL1"&gt; <br>
+                    ... <br>
+                    &lt;p id="copia"&gt; INFORMAÇÃO &lt;/p&gt;</i> </p>
+
+            <p><i>let</i> lista = <b>document.getElementsByClassName</b>("left"); <br>
+               <i>let</i> clone = <b>document.getElementById</b>("copia").innerHTML; <br>
+               <i>let</i> novo = <b>document.createElement</b>("p"); <br>
+               novo.innerHTML = clone + " (cópia)"; <br>
+               <b>document.getElementById</b>(lista[0].id).<b>appendChild</b>(novo);
+            </p>
+            
+            <p>--------------------------------------------------------------------------</p>
+
+            <p> <i> &lt;button id="bt1"type="submit"&gt; BOTÃO! &lt;/button&gt; <br>
+                    &lt;button id="bt2" type="submit"&gt; </i> </p>
+
+            <p> <i>let</i> lista2 = <b>document.getElementsByTagName</b>("button"); <br>
+               lista2[1].innerHTML = "BOTÃO ATUALIZADO!";  <br>
+            <p>
+        </div>
+    </div>
+
+    <script>
+        let temp = document.getElementById("demo").innerHTML;
+        document.getElementById("demo").innerHTML = "Hello World! "+ temp;
+
+        document.getElementById("newDemo").innerHTML = "Uma mensagem muito original";
+
+        
+        let lista = document.getElementsByClassName("left");
+        let clone = document.getElementById("copia").innerHTML;
+        let novo = document.createElement("p");
+        novo.innerHTML = clone + " (cópia)";
+        document.getElementById(lista[0].id).appendChild(novo);
+
+        let lista2 = document.getElementsByTagName("button");
+        lista2[1].innerHTML = "BOTÃO ATUALIZADO!";      
+        
+      </script>
+
+</body>
+</html>
