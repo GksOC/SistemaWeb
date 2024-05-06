@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"> 
+        <title>Conversor de Moedas</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">LISTA JAVA SCRIPT</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="exe01.html">EXERCÍCIO 1</a></li>
+                        <li><a href="exe02.html">EXERCÍCIO 2</a></li>
+                        <li><a href="exe03.html">EXERCÍCIO 3</a></li>
+                        <li><a href="exe04.html">EXERCÍCIO 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h2>Conversor de Moedas</h2>
+            <form action="#">
+                <label for="valor">Valor:</label>
+                <input type="number" id="valor" name="valor" required><br>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="moedaOrigem" name="moedaOrigem">
+                            <option value="" disabled selected>Moeda de origem</option>
+                            <option value="USD">Dólar Americano (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="GBP">Libra Esterlina (GBP)</option>
+                            <option value="JPY">Iene Japonês (JPY)</option>
+                            <option value="BRL">Real Brasileiro (BRL)</option>
+                        </select>
+                        <label>De:</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <select id="moedaDestino" name="moedaDestino">
+                            <option value="" disabled selected>Converter para moeda</option>
+                            <option value="USD">Dólar Americano (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="GBP">Libra Esterlina (GBP)</option>
+                            <option value="JPY">Iene Japonês (JPY)</option>
+                            <option value="BRL">Real Brasileiro (BRL)</option>
+                        </select>
+                        <label>Para:</label>
+                    </div>
+                    
+                    <div class="center-align">
+                        <a class="waves-effect waves-light btn" onclick="converterMoeda()">CONVERTER</a>
+                    </div>
+                </div>
+            </form>
+            <div class="center-align" id="resultado"></div>
+
+            <script>
+                 $(document).ready(function(){
+                    $('select').formSelect();
+                });
+
+                function converterMoeda() {
+                    var valor = parseFloat(document.getElementById("valor").value);
+                    var moedaOrigem = document.getElementById("moedaOrigem").value;
+                    var moedaDestino = document.getElementById("moedaDestino").value;
+                    
+                    // Taxas de conversão entre diferentes moedas
+                    var taxas = {
+                        "USD": 1.0,
+                        "EUR": 0.82,
+                        "GBP": 0.72,
+                        "JPY": 109.72,
+                        "BRL": 5.35
+                    };
+                    
+                    var taxaOrigem = taxas[moedaOrigem];
+                    var taxaDestino = taxas[moedaDestino];
+                    
+                    var valorConvertido = valor * (taxaDestino / taxaOrigem);
+                    
+                    document.getElementById("resultado").innerHTML = "Valor convertido: " + valorConvertido.toFixed(2) + " " + moedaDestino;
+                }
+            </script>
+            
+        </div>
+    </body>
+</html>

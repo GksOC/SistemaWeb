@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"> 
+    <title>Cadastro de Usuários</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    </head>
+    <body>
+        <nav>
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">LISTA JAVA SCRIPT</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="exe01.html">EXERCÍCIO 1</a></li>
+                        <li><a href="exe02.html">EXERCÍCIO 2</a></li>
+                        <li><a href="exe03.html">EXERCÍCIO 3</a></li>
+                        <li><a href="exe04.html">EXERCÍCIO 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h2>Cadastro de Usuários</h2>
+            <form>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required><br>
+                
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" required><br>
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required><br>
+                <div class="center-align">
+                    <a class="waves-effect waves-light btn" onclick="adicionarUsuario()">Adicionar Usuário</a>
+                </div>
+            </form>
+            <br>
+            
+            <h3>Usuários Cadastrados:</h3>
+            <ul id="lista-usuarios"></ul>
+        </div>
+        
+        <script>
+            var usuarios = []; // Vetor para armazenar os usuários cadastrados
+            
+            function adicionarUsuario() {
+                var nome = document.getElementById("nome").value;
+                var idade = document.getElementById("idade").value;
+                var email = document.getElementById("email").value;
+                
+                // Criar um objeto usuário com as informações fornecidas
+                var usuario = {
+                    nome: nome,
+                    idade: idade,
+                    email: email
+                };
+        
+                // Adicionar o usuário ao vetor de usuários
+                usuarios.push(usuario);
+        
+                // Limpar os campos do formulário
+                document.getElementById("nome").value = "";
+                document.getElementById("idade").value = "";
+                document.getElementById("email").value = "";
+        
+                // Atualizar a lista de usuários cadastrados
+                listarUsuarios();
+            }
+        
+            function listarUsuarios() {
+                var listaUsuarios = document.getElementById("lista-usuarios");
+                listaUsuarios.innerHTML = ""; // Limpar a lista antes de atualizar
+        
+                // Percorrer o vetor de usuários e adicionar cada usuário à lista
+                usuarios.forEach(function(usuario) {
+                    var itemLista = document.createElement("li");
+                    itemLista.textContent = "Nome: " + usuario.nome + ", Idade: " + usuario.idade + ", Email: " + usuario.email;
+                    listaUsuarios.appendChild(itemLista);
+                });
+            }
+        </script>
+    </body>
+</html>

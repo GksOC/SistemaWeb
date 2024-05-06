@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+        <title>Calculadora de Média</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </head>
+    
+    <body>
+        <nav>
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">LISTA JAVA SCRIPT</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="exe01.html">EXERCÍCIO 1</a></li>
+                        <li><a href="exe02.html">EXERCÍCIO 2</a></li>
+                        <li><a href="exe03.html">EXERCÍCIO 3</a></li>
+                        <li><a href="exe04.html">EXERCÍCIO 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h2>Calculadora de Média</h2>
+            <form>
+                <label for="nota1">Nota 1:</label>
+                <input type="number" id="nota1" name="nota1" required><br>
+                
+                <label for="nota2">Nota 2:</label>
+                <input type="number" id="nota2" name="nota2" required><br>
+                
+                <label for="nota3">Nota 3:</label>
+                <input type="number" id="nota3" name="nota3" required><br>
+                
+                <label for="nota4">Nota 4:</label>
+                <input type="number" id="nota4" name="nota4" required><br>
+                
+                <div class="center-align">
+                    <a class="waves-effect waves-light btn" onclick="calcularMedia()">Calcular Média</a>
+                </div>
+                
+            </form>
+            <div id="media"></div>
+            <div id="situacao"></div>
+        </div>
+            
+            
+            <script>
+                function calcularMedia() {
+                var notas = [];
+                notas.push(parseFloat(document.getElementById("nota1").value));
+                notas.push(parseFloat(document.getElementById("nota2").value));
+                notas.push(parseFloat(document.getElementById("nota3").value));
+                notas.push(parseFloat(document.getElementById("nota4").value));
+    
+                var soma = notas.reduce(function(a, b) { return a + b; }, 0);
+                var media = soma / notas.length;
+    
+                document.getElementById("media").innerHTML = "Média final: " + media.toFixed(2);
+    
+                if (media >= 70) {
+                    document.getElementById("situacao").innerHTML = "Situação: Aprovado";
+                } else {
+                    document.getElementById("situacao").innerHTML = "Situação: Reprovado";
+                }
+            }
+        </script>
+        
+    </body>
+</html>
